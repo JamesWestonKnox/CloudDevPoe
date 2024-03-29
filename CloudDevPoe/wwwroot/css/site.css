@@ -1,41 +1,57 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-ul {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    left: 0;
+﻿
+ul 
+{
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #80C4B7;
+    background-color: #FFBE98;
 }
 
-li {
+li 
+{
     float: left;
 }
 
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
+li a 
+{
+    font-family:Gadugi;
+    font-size: 20px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
 
-        /* Change the link color to #111 (black) on hover */
-        li a:hover {
-            background-color: #E3856B;
-        }
-.pageheader {
+
+li a:hover 
+{
+    background-color: #F7DED0;
+}
+
+.navbar input[type=text] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 20px;
+}
+
+.pageheader 
+{
     margin-top: 65px;
 }
 
-footer {
+h1 {
+    text-align: center;
+    font-family: Gadugi;
+    color: #FFBE98;
+}
+
+footer 
+{
     position:absolute;
     left: 0;
     bottom: 0;

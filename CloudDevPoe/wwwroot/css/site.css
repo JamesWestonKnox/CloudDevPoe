@@ -30,7 +30,8 @@ li a:hover
     background-color: #F7DED0;
 }
 
-.navbar input[type=text] {
+.navbar input[type=text] 
+{
     float: right;
     padding: 6px;
     border: none;
@@ -41,18 +42,50 @@ li a:hover
 
 .pageheader 
 {
-    margin-top: 65px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 45px;
 }
 
-h1 {
+h1 
+{
     text-align: center;
     font-family: Gadugi;
-    color: #FFBE98;
+    color: #faa878;
+}
+.h1Small {
+    text-align: left;
+    font-family: Gadugi;
+    color: #faa878;
+    font-size: 34px;
+    margin-left: 100px;
+    margin-right: 100px;
+    overflow: auto;
+}
+.divImages
+{
+    display: flex;
+    width:100%;
+    flex-wrap: wrap;
+}
+    div img {
+        margin-bottom: 20px;
+        height: 500px;
+        width: 750px;
+        border: 8px solid #FFBE98;
+    }
+
+div h1 {
+    overflow: auto;
+    font-size: 40px;
 }
 
-footer 
-{
-    position:absolute;
-    left: 0;
-    bottom: 0;
+.imagesSmall {
+
+    margin-bottom: 20px;
+    height: 400px;
+    width: 600px;
+    border: 8px solid #FFBE98;
 }
+
+

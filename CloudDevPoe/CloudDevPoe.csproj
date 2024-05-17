@@ -8,13 +8,16 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
-    <Folder Include="Views\User\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\css\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\images\baskets.jpg" />
     <None Include="wwwroot\images\espresso-cups-635x394.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
 </Project>

@@ -3,8 +3,8 @@ using System.Data.SqlClient;
 
 namespace CloudDevPoe.Models
 {
-    public class userTable
-    {
+    public class userTable 
+    { 
         public userTable() { }
         public static string con_string = "Server=tcp:cloud-dev-poe-server.database.windows.net,1433;Initial Catalog=cloud-dev-db;Persist Security Info=False;User ID=james;Password=y6EKb9Rz@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         public static SqlConnection con = new SqlConnection(con_string);
@@ -34,3 +34,4 @@ namespace CloudDevPoe.Models
         }
     }
 }
+ 

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CloudDevPoe.Models;
+using Microsoft.AspNetCore.Mvc;
+using CloudDevPoe.Models;
 
 namespace CloudDevPoe.Controllers
 {

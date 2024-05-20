@@ -1,0 +1,19 @@
+﻿@model CloudDevPoe.Models.userTable
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Login</h1>
+    <p>If you don't have an account <a href="https://localhost:7248/User/SignUp">Sign Up</a> for a new account.</p>
+</div>
+
+<body>
+    <form asp-controller="Login" asp-action="Login" method="post">
+        <p>Please enter your first name and email:</p>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="email" placeholder="example@gmail.com" required>
+        <button type="submit">Submit</button>
+    </form>
+
+</body>

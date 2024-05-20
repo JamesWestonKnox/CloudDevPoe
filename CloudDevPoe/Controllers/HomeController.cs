@@ -43,7 +43,7 @@ namespace CloudDevPoe.Controllers
             return View();
         }
 
-        public IActionResult SignUp() 
+        public IActionResult Login()
         {
             return View();
         }

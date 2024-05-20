@@ -1,15 +1,54 @@
-﻿@{
+﻿@model int;
+@{
     ViewData["Title"] = "Home Page";
+    var userID = ViewData["userID"];
+    var products = ViewData["products"] as List<CloudDevPoe.Models.productTable>;
 }
-<body style="background-color: #FEECE2;">
-    <h1 style="text-align:center;" class="pageheader">Welcome to KhumaloCraft Emporium</h1>
-    <div class="divImages">
-        <img style="margin-right: 50px" src="/images/baskets.jpg" />
-        <h1 style="padding-top: 200px">Shop our selection of unique handcrafted products</h1>
-    </div>
-    <div class="divImages">
-        <h1 style="padding-top: 200px; margin-left: 40px">We aim to connect you with local and global artisans <br /> alike and support their trade of handcrafted products</h1>
-        <img style="position:absolute; float: right; right: 10px" src="/images/artisan1.jpg" />
-    </div>
 
-</body>
+@if (userID != null)
+{
+    <p>User ID: @userID</p>
+}
+else
+{
+    <p>No user logged in.</p>
+}
+
+<h2>All Products</h2>
+
+@if (products != null && products.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Availability</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.name</td>
+                    <td>@product.price</td>
+                    <td>@product.category</td>
+                    <td>@product.availability</td>
+                    <td>
+                        <form asp-controller="Transaction" asp-action="PlaceOrder" method="post">
+                            <input type="hidden" name="userID" value="@userID" />
+                            <input type="hidden" name="productID" value="@product.productID" />
+                            <button type="submit">Place Order</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No products available.</p>
+}

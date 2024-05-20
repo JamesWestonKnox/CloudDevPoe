@@ -13,7 +13,7 @@ namespace CloudDevPoe.Controllers
             {
                 using (SqlConnection con = new SqlConnection(productTable.con_string))
                 {
-                    string sql = "INSERT INTO transcationTable (userID, productID) VALUES (@userID, @productID)";
+                    string sql = "INSERT INTO transactionTable (userID, productID) VALUES (@userID, @productID)";
 
                     using (SqlCommand cmd = new SqlCommand(sql, con))
                     {

@@ -22,8 +22,8 @@ namespace CloudDevPoe.Controllers
 
             int? userID = _httpContextAccessor.HttpContext.Session.GetInt32("UserID");
 
-            ViewData["Products"] = products;
-            ViewData["UserID"] = userID;
+            ViewData["products"] = products;
+            ViewData["userID"] = userID;
 
             return View();
         }

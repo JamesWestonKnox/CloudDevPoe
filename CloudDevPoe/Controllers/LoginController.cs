@@ -22,6 +22,7 @@ namespace CloudDevPoe.Controllers
             if (userID != -1) 
             {
                 HttpContext.Session.SetInt32("UserID", userID);
+                HttpContext.Session.SetString("UserName", name);
 
                 return RedirectToAction("Index", "Home");
             }

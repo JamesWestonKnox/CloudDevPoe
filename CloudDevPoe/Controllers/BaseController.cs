@@ -17,7 +17,9 @@ namespace CloudDevPoe.Controllers
             base.OnActionExecuting(context);
 
             int? userID = _httpContextAccessor.HttpContext.Session.GetInt32("UserID");
+            string userName = _httpContextAccessor.HttpContext.Session.GetString("UserName");
             ViewData["userID"] = userID;
+            ViewData["userName"] = userName;
         }
     }
 }

@@ -1,12 +1,17 @@
 ﻿using CloudDevPoe.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration.UserSecrets;
 
 namespace CloudDevPoe.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
 
         public userTable usrtbl = new userTable();
+
+        public UserController(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        {
+        }
 
         [HttpPost]
         public ActionResult SignUp(userTable Users)

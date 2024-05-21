@@ -31,5 +31,13 @@ namespace CloudDevPoe.Controllers
                 return View("LoginFailed");
             }
         }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear(); // Clear the user's session
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

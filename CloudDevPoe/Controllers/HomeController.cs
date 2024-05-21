@@ -4,15 +4,12 @@ using System.Diagnostics;
 
 namespace CloudDevPoe.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public HomeController(ILogger<HomeController> logger, IHttpContextAccessor httpContextAccessor)
+        public HomeController(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
         {
-            _logger = logger;
-            _httpContextAccessor = httpContextAccessor;
         }
 
         public IActionResult Index()
@@ -20,10 +17,7 @@ namespace CloudDevPoe.Controllers
 
             List<productTable> products = productTable.GetAllProducts();
 
-            int? userID = _httpContextAccessor.HttpContext.Session.GetInt32("UserID");
-
             ViewData["products"] = products;
-            ViewData["userID"] = userID;
 
             return View();
         }

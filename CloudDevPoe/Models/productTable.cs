@@ -11,7 +11,7 @@ namespace CloudDevPoe.Models
 
         public int productID { get; set; }
         public string name { get; set; }
-        public string price { get; set; }
+        public decimal price { get; set; }
         public string category { get; set; }
         public string availability { get; set; }
 
@@ -52,7 +52,7 @@ namespace CloudDevPoe.Models
                     productTable product = new productTable();
                     product.productID = Convert.ToInt32(rdr["productID"]);
                     product.name = rdr["productName"].ToString();
-                    product.price = rdr["productPrice"].ToString();
+                    product.price = Convert.ToDecimal(rdr["productPrice"]);
                     product.category = rdr["productCategory"].ToString();
                     product.availability = rdr["productAvailability"].ToString();
 

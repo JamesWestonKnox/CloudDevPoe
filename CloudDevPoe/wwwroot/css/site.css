@@ -88,4 +88,50 @@ div h1 {
     border: 8px solid #FFBE98;
 }
 
+p {
+    font-family: Gadugi;
+    color: #faa878;
+    font-size: 28px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
 
+.button {
+    display: block;
+    height: 40px;
+    width: 150px;
+    background: #FEECE2;
+    padding: 2px;
+    text-align: center;
+    border: 1px solid #faa878;
+    color: #faa878;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+table, th, td {
+    text-align: left;
+    border: 2px solid #faa878;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+th {
+    font-size: 34px;
+    color: #faa878;
+    font-weight: bold;
+    height: 75px;
+    text-align:center;
+}
+
+td {
+    font-size: 30px;
+    color: #faa878;
+    height: 75px;
+    padding-left: 5px;
+}
+
+table{
+    width: 75%;
+}

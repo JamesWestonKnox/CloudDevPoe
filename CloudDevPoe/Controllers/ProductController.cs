@@ -13,7 +13,7 @@ namespace CloudDevPoe.Controllers
         {
             var result2 = prodtbl.InsertProduct(products);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("MyWork", "Home");
         }
 
         [HttpGet]

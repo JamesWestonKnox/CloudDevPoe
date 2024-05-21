@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@model int;
+@{
+    var userID = ViewData["userID"];
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -16,13 +20,24 @@
                 <li class="">
                     <a class="" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
                 </li>
-                 <li class="">
+                @if (userID != null)
+                {
+                    <li class="" style="float:right;">
+                        <a class="" asp-area="" asp-controller="Home" asp-action="Login">User ID: @userID</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="" style="float:right;">
+                        <a class="" asp-area="" asp-controller="Home" asp-action="Login">No user logged in</a>
+                    </li>
+                }
+                <li class="" style="float:right;">
+                    <a class="" asp-area="" asp-controller="Home" asp-action="Login">Account</a>
+                </li>
+                 <li class="" style="float:right;">
                     <a class="" asp-area="" asp-controller="Home" asp-action="MyWork">My Work</a>
                  </li>
-                <li class="">
-                    <a class="" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
-                </li>
-                <input type="text" placeholder="Search..">
             </ul>
         </nav>
     </header>

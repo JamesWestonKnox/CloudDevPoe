@@ -12,7 +12,7 @@ namespace CloudDevPoe.Controllers
         public ActionResult SignUp(userTable Users)
         {
             var actionResult = usrtbl.InsertUser(Users);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Home");
         }
 
         [HttpGet]

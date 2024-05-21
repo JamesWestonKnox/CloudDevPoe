@@ -4,17 +4,14 @@
     var userID = ViewData["userID"];
     var products = ViewData["products"] as List<CloudDevPoe.Models.productTable>;
 }
+<body style="background-color: #FEECE2;">
+    <h1 style="text-align:center;" class="pageheader">Welcome to KhumaloCraft Emporium</h1>
+    <div class="divImages">
+        <img style="margin-right: 50px" src="/images/baskets.jpg" />
+        <h1 style="padding-top: 200px">Shop our selection of unique handcrafted products</h1>
+    </div>
 
-@if (userID != null)
-{
-    <p>User ID: @userID</p>
-}
-else
-{
-    <p>No user logged in.</p>
-}
-
-<h2>All Products</h2>
+    <h1 style="padding-top: 40px">All of our available products</h1>
 
 @if (products != null && products.Any())
 {
@@ -33,16 +30,23 @@ else
             {
                 <tr>
                     <td>@product.name</td>
-                    <td>@product.price</td>
+                    <td>@String.Format("{0:F2}", product.price)</td>
                     <td>@product.category</td>
                     <td>@product.availability</td>
                     <td>
-                        <form asp-controller="Transaction" asp-action="PlaceOrder" method="post">
-                            <input type="hidden" name="userID" value="@userID" />
-                            <input type="hidden" name="productID" value="@product.productID" />
-                            <button type="submit">Place Order</button>
-                        </form>
-                    </td>
+                        @if (userID != null)
+                            {                      
+                            <form asp-controller="Transaction" asp-action="PlaceOrder" method="post">
+                                <input type="hidden" name="userID" value="@userID" />
+                                <input type="hidden" name="productID" value="@product.productID" />
+                                <button type="submit">Place Order</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <a href="https://localhost:7248/Home/Login" class="btn btn-primary">Login to Place Order</a>
+                            }
+                        </td>
                 </tr>
             }
         </tbody>
@@ -52,3 +56,4 @@ else
 {
     <p>No products available.</p>
 }
+</body>

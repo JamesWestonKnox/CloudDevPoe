@@ -1,6 +1,5 @@
 ﻿using CloudDevPoe.Models;
 using Microsoft.AspNetCore.Mvc;
-using CloudDevPoe.Models;
 
 namespace CloudDevPoe.Controllers
 {
@@ -24,6 +23,7 @@ namespace CloudDevPoe.Controllers
                 HttpContext.Session.SetInt32("UserID", userID);
                 HttpContext.Session.SetString("UserName", name);
 
+
                 return RedirectToAction("Index", "Home");
             }
             else 
@@ -35,9 +35,10 @@ namespace CloudDevPoe.Controllers
         [HttpPost]
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear(); // Clear the user's session
+            HttpContext.Session.Clear();
 
             return RedirectToAction("Index", "Home");
         }
+
     }
 }

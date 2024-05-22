@@ -1,0 +1,36 @@
+﻿@model List<CloudDevPoe.Models.OrdersModel>;
+@{
+    var orders = ViewData["orders"] as List<CloudDevPoe.Models.OrdersModel>;
+    var userID = ViewData["userID"];
+}
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.transactionID</td>
+                    <td>@order.productID</td>
+                    <td>@order.productName</td>
+                    <td>@order.productPrice</td>
+                    <td>@order.productCategory</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No orders found.</p>
+}

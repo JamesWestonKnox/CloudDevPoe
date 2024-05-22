@@ -40,6 +40,8 @@ namespace CloudDevPoe.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            List<productTable> sales = productTable.GetSales(userID);
+            ViewData["sales"] = sales;
             var userProducts = productTable.GetUserProducts(userID);
             return View(userProducts);
         }

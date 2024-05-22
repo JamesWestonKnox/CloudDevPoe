@@ -9,6 +9,7 @@ namespace CloudDevPoe.Models
         public static string con_string = "Server=tcp:cloud-dev-poe-server.database.windows.net,1433;Initial Catalog=cloud-dev-db;Persist Security Info=False;User ID=james;Password=y6EKb9Rz@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         public static SqlConnection con = new SqlConnection(con_string);
 
+        public int transactionID { get; set; }
         public int productID { get; set; }
         public string name { get; set; }
         public decimal price { get; set; }
@@ -17,6 +18,7 @@ namespace CloudDevPoe.Models
 
         public productTable(int productID, string name, decimal price, string category, string availability, int? userID)
         {
+            this.transactionID = transactionID;
             this.productID = productID;
             this.name = name;
             this.price = price;
@@ -99,5 +101,33 @@ namespace CloudDevPoe.Models
             }
             return userProducts;
         }
+
+        public static List<productTable> GetSales(int? userID)
+        {
+            List<productTable> sales = new List<productTable>();
+
+            using (SqlConnection con = new SqlConnection(con_string))
+            {
+                string sql = "SELECT t.transactionID, p.productID, p.productName, p.productPrice FROM transactionTable t JOIN productTable p ON t.productID = p.productID WHERE p.userID = @UserID;";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@UserID", userID);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    productTable sale = new productTable();
+                    sale.transactionID = Convert.ToInt32(reader["transactionID"]);
+                    sale.productID = Convert.ToInt32(reader["productID"]);
+                    sale.name = Convert.ToString(reader["productName"]);
+                    sale.price = Convert.ToDecimal(reader["productPrice"]);
+
+                    sales.Add(sale);
+                }
+                reader.Close();
+            }
+            return sales;
+        }
     }
+
+   
 }

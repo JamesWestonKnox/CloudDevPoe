@@ -15,16 +15,26 @@ namespace CloudDevPoe.Models
         public string category { get; set; }
         public string availability { get; set; }
 
-        public int InsertProduct(productTable t)
+        public productTable(int productID, string name, decimal price, string category, string availability, int? userID)
+        {
+            this.productID = productID;
+            this.name = name;
+            this.price = price;
+            this.category = category;
+            this.availability = availability;
+        }
+
+        public int InsertProduct(productTable t, int? userID)
         {
             try
             {
-                string sqlQuery = "INSERT INTO productTable (productName, productPrice, productCategory, productAvailability) VALUES (@name, @price, @category, @availability)";
+                string sqlQuery = "INSERT INTO productTable (productName, productPrice, productCategory, productAvailability, userID) VALUES (@name, @price, @category, @availability, @userID)";
                 SqlCommand insertProductCmd = new SqlCommand(sqlQuery, con);
                 insertProductCmd.Parameters.AddWithValue("@name", t.name);
                 insertProductCmd.Parameters.AddWithValue("@price", t.price);
                 insertProductCmd.Parameters.AddWithValue("@category", t.category);
                 insertProductCmd.Parameters.AddWithValue("@availability", t.availability);
+                insertProductCmd.Parameters.AddWithValue("@userId", userID);
                 con.Open();
                 int rowsAffected = insertProductCmd.ExecuteNonQuery();
                 con.Close();
@@ -61,6 +71,33 @@ namespace CloudDevPoe.Models
             }
 
             return products;
+        }
+
+        public static List<productTable> GetUserProducts(int? userID) 
+        { 
+            List<productTable> userProducts = new List<productTable>();
+
+            using (SqlConnection con = new SqlConnection(con_string))
+            {
+                string sql = "SELECT p.productID, p.productName, p.productPrice, p.productCategory, p.productAvailability FROM productTable p WHERE p.userID = @UserID";
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.Parameters.AddWithValue("@UserID", userID);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    productTable userProduct = new productTable();
+                    userProduct.productID = Convert.ToInt32(reader["productID"]);
+                    userProduct.name = Convert.ToString(reader["productName"]);
+                    userProduct.price = Convert.ToDecimal(reader["productPrice"]);
+                    userProduct.category = Convert.ToString(reader["productCategory"]);
+                    userProduct.availability = Convert.ToString(reader["productAvailability"]);
+
+                    userProducts.Add(userProduct);
+                }
+                reader.Close();
+            }
+            return userProducts;
         }
     }
 }

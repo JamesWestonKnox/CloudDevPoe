@@ -1,10 +1,12 @@
 ﻿@model CloudDevPoe.Models.userTable
 @{
-    ViewData["Title"] = "Account";
+    ViewData["Title"] = "Login";
     var userID = ViewData["userID"];
 }
+<body style="background-color: white">
 @if (userID != null)
 {
+    ViewData["Title"] = "Account";
     <div class="text-center">
         <h1 class="display-4">Welcome to your account</h1>
         <form asp-controller="Login" asp-action="Logout" method="post">
@@ -28,4 +30,6 @@ else
         </form>
 
     </body>
+
 }
+</body>

@@ -96,43 +96,63 @@ p {
     margin-right: 100px;
 }
 
-.button {
-    display: block;
-    height: 40px;
-    width: 150px;
-    background: #FEECE2;
-    padding: 2px;
+button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
     text-align: center;
-    border: 1px solid #faa878;
-    color: #faa878;
-    font-weight: bold;
-    margin-top: 10px;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #FFBE98;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
 }
 
+    button:hover {
+        background-color: #faa878
+    }
+
+    button:active {
+        background-color: #faa878;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
 table, th, td {
-    text-align: left;
-    border: 2px solid #faa878;
     border-collapse: collapse;
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     margin-bottom: 100px;
 }
 
 th {
     font-size: 34px;
-    color: #faa878;
+    color: white;
     font-weight: bold;
     height: 75px;
-    text-align:center;
+    background-color: #FFBE98;
+    text-align:left;
+    padding-left: 40px;
 }
 
 td {
     font-size: 30px;
     color: #faa878;
     height: 75px;
-    padding-left: 5px;
+    padding-left: 40px;
+    border-bottom: 1px solid #faa878;
 }
 
 table{
     width: 75%;
+}
+
+input[type=text] {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }

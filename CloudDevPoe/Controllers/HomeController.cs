@@ -34,7 +34,14 @@ namespace CloudDevPoe.Controllers
 
         public IActionResult MyWork()
         {
-            return View();
+
+            int? userID = HttpContext.Session.GetInt32("UserID");
+            if (userID == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var userProducts = productTable.GetUserProducts(userID);
+            return View(userProducts);
         }
 
         public IActionResult Login()

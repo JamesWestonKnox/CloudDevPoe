@@ -1,17 +1,50 @@
-﻿@model CloudDevPoe.Models.productTable
+﻿@model List<CloudDevPoe.Models.productTable>;
 @{
     ViewData["Title"] = "My Work";
+    var userProducts = ViewData["userProducts"] as List<CloudDevPoe.Models.productTable>;
+    var userID = ViewData["userID"];
 }
+<body style="background-color: white">
+    <h1>My Work</h1>
+    <p>Insert new products</p>
 
-<h1>My Work</h1>
-
-<body>
     <form asp-controller="Product"asp-action="MyWork" method="post">
-        <p>Insert new products</p>
         <input type="text" name="name" placeholder="Name" required>
         <input type="text" name="price" placeholder="Price" required>
         <input type="text" name="category" placeholder="Category" required>
         <input type="text" name="availability" placeholder="Availability" required>
         <button type="submit">Add new product</button>
     </form>
+
+    <h1>Your Products</h1>
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var userProduct in Model)
+                {
+                    <tr>
+                        <td style="border-left: 1px solid #faa878">@userProduct.productID</td>
+                        <td>@userProduct.name</td>
+                        <td>R @String.Format("{0:F2}", userProduct.price)</td>
+                        <td>@userProduct.category</td>
+                        <td style="border-right: 1px solid #faa878">@userProduct.availability</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No products added</p>
+    }
 </body>

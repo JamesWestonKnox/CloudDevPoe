@@ -97,7 +97,7 @@ p {
 }
 
 button {
-    display: inline-block;
+    display: flex;
     padding: 15px 25px;
     font-size: 24px;
     cursor: pointer;
@@ -151,8 +151,17 @@ table{
 }
 
 input[type=text] {
-    width: 75%;
+    width: 20%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+}
+
+form{
+    
+    text-align:center;
+}
+
+a{
+    text-decoration: none;
 }

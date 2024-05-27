@@ -7,14 +7,14 @@
 }
 <body style="background-color: white">
     <h1>My Work</h1>
-    <p>Insert new products</p>
+    <h1 class="h1Small" style="margin-left: 185px;">Add new products</h1>
 
     <form asp-controller="Product"asp-action="MyWork" method="post">
-        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="name" placeholder="Product Name" required>
         <input type="text" name="price" placeholder="Price" required>
         <input type="text" name="category" placeholder="Category" required>
         <input type="text" name="availability" placeholder="Availability" required>
-        <button type="submit">Add new product</button>
+        <button style="margin-left: 180px;" type="submit">Add new product</button>
     </form>
 
     <h1>Your Products</h1>
@@ -46,7 +46,7 @@
     }
     else
     {
-        <p>No products added</p>
+        <h1 class="h1Small" style="margin-left: 185px;">No products added</h1>
     }
 
     <h1>Your Sales</h1>
@@ -76,6 +76,6 @@
     }
     else
     {
-        <p>No sales</p>
+        <h1 class="h1Small" style="margin-left: 185px;">No sales</h1>
     }
 </body>

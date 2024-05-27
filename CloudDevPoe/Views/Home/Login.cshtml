@@ -7,29 +7,25 @@
 @if (userID != null)
 {
     ViewData["Title"] = "Account";
-    <div class="text-center">
-        <h1 class="display-4">Welcome to your account</h1>
+    <div>
+        <h1>Welcome to your account</h1>
         <form asp-controller="Login" asp-action="Logout" method="post">
-            <button type="submit" class="btn btn-danger">Sign Out</button>
+                <button style="margin-left:auto;margin-right:auto;" type="submit">Sign Out</button>
         </form>
     </div>
 }
 else
 {
-    <div class="text-center">
-        <h1 class="display-4">Login</h1>
-        <p>If you don't have an account <a href="https://localhost:7248/User/SignUp">Sign Up</a> for a new account.</p>
-    </div>
-
-    <body>
+    <div>
+        <h1>Login</h1>
         <form asp-controller="Login" asp-action="Login" method="post">
             <p>Please enter your first name and email:</p>
             <input type="text" name="name" placeholder="Name" required>
             <input type="text" name="email" placeholder="example@gmail.com" required>
-            <button type="submit">Login</button>
+            <button style="margin-left: auto; margin-right: auto" type="submit">Login</button>
         </form>
-
-    </body>
-
+        <p style="text-align:center">If you don't have an account please sign up below</p>
+            <a href="https://localhost:7248/User/SignUp"><button style="margin-left:auto;margin-right:auto;">Sign Up</button></a>
+    </div>
 }
 </body>
